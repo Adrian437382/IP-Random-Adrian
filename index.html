@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <title>ژنراتور آی‌پی با پینگ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Vazirmatn', Tahoma, sans-serif;
+      background: linear-gradient(to right top, #c9e4ff, #f1f8ff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      direction: rtl;
+    }
+
+    .container {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      max-width: 420px;
+      width: 90%;
+    }
+
+    h1 {
+      font-size: 26px;
+      margin-bottom: 25px;
+      color: #333;
+    }
+
+    button {
+      background: linear-gradient(135deg, #4a90e2, #007bff);
+      color: white;
+      border: none;
+      padding: 14px 32px;
+      font-size: 18px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.3s ease;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      background: linear-gradient(135deg, #357abd, #0056b3);
+    }
+
+    #ip-display {
+      margin-top: 30px;
+      font-size: 22px;
+      background-color: #f3f7ff;
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid #d0e2ff;
+      color: #1a237e;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .ip {
+      color: #0d47a1;
+    }
+
+    .ping {
+      color: #388e3c;
+      margin-right: 10px;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎲 ژنراتور آی‌پی + پینگ (ms)</h1>
+    <button onclick="generateIP()">دریافت آی‌پی جدید</button>
+    <p id="ip-display">آی‌پی هنوز تولید نشده است</p>
+  </div>
+
+  <script>
+    function generateIP() {
+      const ip = Array.from({ length: 4 }, () => Math.floor(Math.random() * 255) + 1).join('.');
+      const ping = Math.floor(Math.random() * 295) + 5; // عدد بین 5 تا 300 ms
+      const display = document.getElementById('ip-display');
+      display.innerHTML = `<span class="ip">${ip}</span> <span class="ping">| ${ping} ms</span>`;
+    }
+  </script>
+</body>
+</html>
+
